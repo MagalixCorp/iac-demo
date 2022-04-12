@@ -1,0 +1,58 @@
+name: Weaveworks
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  kubernetes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ahsayde/weave-action@master
+        with:
+          path: entities/kubernetes
+          policies-path: policies
+          remediate: false
+          sarif-file: results.sarif
+
+      - uses: github/codeql-action/upload-sarif@v2
+        if: always()
+        with:
+          sarif_file: results.sarif
+
+  helm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ahsayde/weave-action@master
+        with:
+          path: entities/helm
+          helm-values-file: entities/helm/values.yaml
+          policies-path: policies
+          remediate: false
+          sarif-file: results.sarif
+
+      - uses: github/codeql-action/upload-sarif@v2
+        if: always()
+        with:
+          sarif_file: results.sarif
+
+  kustomize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ahsayde/weave-action@master
+        with:
+          path: entities/kustomize/overlays/test
+          policies-path: policies
+          remediate: false
+          sarif-file: results.sarif
+
+      - uses: github/codeql-action/upload-sarif@v2
+        if: always()
+        with:
+          sarif_file: results.sarif
