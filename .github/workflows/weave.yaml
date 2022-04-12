@@ -12,13 +12,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: git clone https://github.com/MagalixTechnologies/policy-library -b flux-demo /tmp/policy-library
+      - run: git clone https://gitlab.com/ahsayde/test -b master /tmp/test
         
       - uses: ahsayde/weave-action@master
         with:
           path: entities/helm
           helm-values-file: entities/helm/values.yaml
-          policies-path: /tmp/policy-library/policies
+          policies-path: /tmp/test/policies/kube
           remediate: false
           sarif-file: results.sarif
 
