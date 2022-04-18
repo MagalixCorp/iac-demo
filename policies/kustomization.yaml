@@ -4,5 +4,6 @@ resources:
     - minimum-replica-count.yaml
     - privilege-escalation.yaml
     - privileged-mode.yaml
+    - missing-label.owner.yaml
 buildMetadata:
     - originAnnotations
