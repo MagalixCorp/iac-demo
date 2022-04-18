@@ -3,13 +3,18 @@ kind: Deployment
 metadata:
   name: app-1
 spec:
-  replicas: 2
-
+  replicas: 3
+  template:
+    spec:
+      containers: false
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: app-2
 spec:
-  replicas: 2
+  replicas: 3
+  template:
+    spec:
+      containers: false
+
