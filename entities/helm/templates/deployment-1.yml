@@ -12,9 +12,9 @@ spec:
         app: app-1
     spec:
       containers:
-        - name: container-1
-          securityContext:
-            privileged: false
+      - name: container-1
+        securityContext:
+          privileged: true
 
 ---
 
@@ -32,6 +32,6 @@ spec:
         app: app-2
     spec:
       containers:
-        - name: container-1
-          securityContext:
-            allowPrivilegeEscalation: false
+      - name: container-1
+        securityContext:
+          allowPrivilegeEscalation: true
