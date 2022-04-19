@@ -5,16 +5,16 @@ metadata:
   labels:
     app: app-1
 spec:
-  replicas: 3
+  replicas: 1
   template:
     metadata:
       labels:
         app: app-1
     spec:
       containers:
-        - name: container-1
-          securityContext:
-            privileged: false
+      - name: container-1
+        securityContext:
+          privileged: true
 
 ---
 
@@ -25,13 +25,13 @@ metadata:
   labels:
     app: app-2
 spec:
-  replicas: 3
+  replicas: 1
   template:
     metadata:
       labels:
         app: app-2
     spec:
       containers:
-        - name: container-1
-          securityContext:
-            allowPrivilegeEscalation: false
+      - name: container-1
+        securityContext:
+          allowPrivilegeEscalation: true

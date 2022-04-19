@@ -1,6 +1,6 @@
 name: Weaveworks
 on:
-  push:
+  pull_request:
     branches: [ master ]
 jobs:
   main:
@@ -11,6 +11,7 @@ jobs:
         with:
           path: entities/kubernetes
           policies-path: policies
+          remediate: true
           sarif-file: results.sarif
 
       - uses: github/codeql-action/upload-sarif@v2
