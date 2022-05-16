@@ -10,7 +10,7 @@ jobs:
       - uses: ahsayde/weave-action@master
         with:
           path: entities/kubernetes
-          policies-path: policy-library
+          policies-path: policies
           remediate: true
           sarif-file: results.sarif
 
