@@ -12,7 +12,7 @@ spec:
         app: app-3
     spec:
       containers:
-      - name: container-1
-        securityContext:
-          privileged: false
+        - name: container-1
+          securityContext:
+            privileged: false
 
