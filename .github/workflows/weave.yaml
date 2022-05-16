@@ -7,10 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - run: git clone https://oauth2:${{ secrets.CLONE_TOKEN }}@github.com/MagalixTechnologies/policy-library -b flux-demo
       - uses: ahsayde/weave-action@master
         with:
           path: entities/kubernetes
-          policies-path: policies
+          policies-path: policy-library
           remediate: true
           sarif-file: results.sarif
 
