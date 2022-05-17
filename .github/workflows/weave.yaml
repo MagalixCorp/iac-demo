@@ -18,3 +18,4 @@ jobs:
         if: always()
         with:
           sarif_file: results.sarif
+
