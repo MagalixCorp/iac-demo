@@ -15,9 +15,7 @@ spec:
       - name: container-1
         securityContext:
           privileged: false
-
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -35,3 +33,4 @@ spec:
       - name: container-1
         securityContext:
           allowPrivilegeEscalation: false
+
