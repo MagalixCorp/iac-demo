@@ -1,0 +1,20 @@
+version: 2.1
+jobs:
+  weave:
+    docker:
+    - image: magalixcorp/weave-validator:dev
+    steps:
+    - checkout
+    - run:
+        command: weave-validator --path entities/kubernetes --policies-path policies
+
+workflows:
+  version: 1
+  weave:
+    jobs:
+    - weave:
+        context: org-global
+        filters:
+          branches:
+            only:
+            - circleci
