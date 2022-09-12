@@ -2,6 +2,8 @@ name: Weaveworks
 on:
   push:
     branches: [ master ]
+  pull_request:
+    branches: [ master ]
 jobs:
   main:
     runs-on: ubuntu-latest
